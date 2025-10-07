@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(
+      1200px 800px at 20% -10%,
+      #06b6d4 0%,
+      transparent 60%
+    ),
+    linear-gradient(160deg, #031926, #071a2f 60%);
+  color: #e6f1f5;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.calculator {
+  width: 100%;
+  max-width: 380px;
+  background: rgba(3, 25, 38, 0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(2, 132, 199, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(6, 182, 212, 0.08) inset;
+  overflow: hidden;
+}
+
+.display {
+  padding: 16px 16px 8px 16px;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 44, 57, 0.7),
+    rgba(2, 44, 57, 0.4)
+  );
+  border-bottom: 1px solid rgba(6, 182, 212, 0.25);
+}
+
+.history {
+  min-height: 20px;
+  font-size: 12px;
+  color: #9cc9d8;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.display-input {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #eaffff;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono',
+    monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.25px;
+  text-align: right;
+  padding: 8px 0 0 0;
+}
+
+.preview {
+  min-height: 20px;
+  text-align: right;
+  color: #b9ebff;
+  font-size: 14px;
+  padding-top: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono',
+    monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 12px 12px 16px 12px;
+}
+
+.key {
+  appearance: none;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  background: linear-gradient(
+    180deg,
+    rgba(3, 25, 38, 0.65),
+    rgba(3, 25, 38, 0.45)
+  );
+  color: #d7f7ff;
+  border-radius: 10px;
+  height: 56px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, box-shadow 120ms ease,
+    border-color 120ms ease, color 120ms ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 1px 1px rgba(0, 0, 0, 0.3);
+  font-variant-numeric: tabular-nums;
+}
+.key:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(4, 45, 63, 0.85),
+    rgba(4, 45, 63, 0.55)
+  );
+}
+.key:active {
+  transform: translateY(1px) scale(0.98);
+}
+.key:focus {
+  outline: none;
+}
+.key:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+}
+
+.key-op {
+  color: #67e8f9;
+  border-color: rgba(103, 232, 249, 0.5);
+}
+.key-func {
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.45);
+}
+.key-equals {
+  background: linear-gradient(180deg, #0891b2, #06b6d4);
+  color: #001219;
+  border-color: rgba(6, 182, 212, 0.6);
+  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.35);
+}
+.key-equals:hover {
+  background: linear-gradient(180deg, #06a7c7, #22d3ee);
+}
+
+/* Focus styles for inputs */
+.display-input:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .display-input {
+    font-size: 28px;
+  }
+  .key {
+    height: 52px;
+    font-size: 17px;
+  }
+}
